@@ -1,0 +1,65 @@
+<app-header></app-header>
+<ng-container *ngIf="products.length != 0">
+    <div class="container">
+        <div class="card-table">
+            <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quanitity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products; let i = index">
+                            <td style="font-weight: bold;">{{i+1}}</td>
+                            <td style="font-weight: bold;">{{item.title}}</td>
+
+                            <td><img style="width:120px;" src="{{item.image}}" alt=""></td>
+                            <td style="width:25%;font-weight: bold;">{{item.description}}</td>
+                            <td style="width:12%;font-weight: bold;">{{item.price}}₪</td>
+                            <td style="width:12%;font-weight: bold;">{{item.quantity}}</td>
+                            <td style="width:12%;font-weight: bold;">{{item.total}}₪</td>
+                            <td>
+                                <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button class="btn btn-danger" (click)="emptycart()">Empty Cart</button></td>
+                            <td><button class="btn btn-primary" routerLink="/products">Shop More</button></td>
+                            <td><button class="btn btn-success">Checkout</button></td>
+                            <td><strong>Grand Total: {{grandTotal}}₪</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            </div>
+        </div>
+</div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length==0">
+<div class="container">
+    <div class="row">
+    <div class="card">
+        <h5 class="card-title" style="text-align:center;font-weight:bold;font-size:40px;padding: 10px; border: 2px solid red;       ">My Cart</h5>
+        <div class="middle">
+            <img src="https://thumbs.dreamstime.com/b/shop-now-premium-red-tag-sign-shop-now-isolated-premium-red-tag-sign-abstract-illustration-124711291.jpg" alt="">
+            <h6 style="font-weight:400;font-size:50px;">Your cart is empty!</h6>
+            <h6 style="font-weight:400;font-size:30px;">Add item</h6>
+            <button routerLink="/products" class="btn btn-danger">Go Shopping</button>
+        </div>
+    </div>
+</div>
+</div>
+</ng-container>
+<app-footer></app-footer>

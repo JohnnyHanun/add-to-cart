@@ -1,0 +1,32 @@
+<header>
+    <div class="navbar shadow-sm d-flex" id="Header">
+        <div class="navbar-brand align-item-center d-flex">
+            <a routerLink="/products">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/1200px-Marvel_Logo.svg.png" width="100" height="40" alt="">
+            </a>
+            <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search...">
+            </div>
+            
+        </div>
+        <div class="navbar-brand align-item-center d-flex">
+            <button routerLink="/home" type="button" class="btn btn-warning" style="width:120px;">
+                <i class="fas fa-home" style="font-size:50px;" ></i>
+            </button>
+            <div  style="margin:50px;"></div>
+        <button routerLink="/addMovie" type="button" class="btn btn-warning" style="width:120px;">
+            <i class="fas fa-film" style="font-size:50px;" ></i>
+        </button>
+        <div  style="margin:50px;"></div>
+        <button routerLink="/cart" type="button" class="btn btn-warning" style="width:120px;" >
+            <i class="fas fa-cart-plus" style="font-size:50px;" ></i>
+            <div class="badge bg-danger">{{totalCounter}}</div>
+        </button>
+    </div>
+        <!--<span class="fas fa-search search-icon"></span>-->
+
+
+
+    </div>
+
+</header>

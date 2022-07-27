@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        
+        <div class="item">
+            <div [style.color]="toggles[0] ? 'red' : 'black'" >
+             <a  (click)="filter('');Toggle(0);" >
+                <img src=" https://img.buzzfeed.com/buzzfeed-static/static/2021-03/9/9/asset/682fe1e39732/sub-buzz-12119-1615280963-1.jpg" width="120" height="120" alt="">
+                <h4 >All Products</h4>
+             </a>
+            </div>
+        </div> 
+
+        <div class="item">
+        <div style="margin-left:120px;" [style.color]="toggles[1] ? 'red' : 'black'">
+        <a  (click)="filter('Marvel Merch');Toggle(1)">
+            <img src="https://image.smythstoys.com/zoom/188564.jpg" width="120" height="120" alt="" >
+            <h4 >Marvel Merch</h4>
+        </a>
+        </div>
+        </div> 
+
+        <div class="item">
+        <div  style="margin-left:120px;"[style.color]="toggles[2] ? 'red' : 'black'">
+        <a (click)="filter('Marvel Shirts');Toggle(2);">
+            <img src="https://i0.wp.com/marvelofficial.com/wp-content/uploads/2019/12/3AFE0F62-C402-4B25-9F49-08ED5D9A2E8D.jpeg?fit=800%2C800&ssl=1" width="120" height="120" alt="" >
+            <h4  >Marvel Shirts</h4>
+        </a>
+     </div>   
+        </div> 
+
+        <div class="item">
+        <div style="margin-left:120px;" [style.color]="toggles[3] ? 'red' : 'black'">
+        <a (click)="filter('Marvel Pops');Toggle(3);">
+            <img src="https://heavy.com/wp-content/uploads/2019/10/best-marvel-funko-pop-figures-the-ultimate-list-feature-image.jpg?quality=65&strip=all" width="200" height="120" alt=""  >
+            <h4  >Marvel Pops</h4>
+        </a>
+     </div> 
+        </div> 
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+        <div class="card col-md-3">
+            <img src="{{item.image}}" alt="" style=""> <!-- Product img-->
+            <h5 class="Adapt">{{item.title}}</h5> <!-- Title-->
+            <p class="Adapt">{{item.description}}</p> <!--Description-->
+            <p><strong >Price: </strong>{{item.price}}₪</p><!--Price-->
+            <button class="btn" style="background-color:red;color:white;font:Arial;font-weight: bold;"
+                (click)=addtocart(item)>
+                Add To Cart
+            </button> 
+        </div>
+    </ng-container>
+    </div>
+</div>
+<app-footer></app-footer>

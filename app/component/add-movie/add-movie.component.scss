@@ -1,0 +1,57 @@
+.card-top{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    word-wrap:break-word;
+    background:#fff;
+    background-clip:border-box;
+    border:1px solid black;
+    border-radius: .25rem;
+
+}
+.add{
+    margin-top:30px;
+    margin-left:-150px;
+    text-align:center;
+}
+#addmvbtn{
+    text-align:center;
+    margin-left:220px;
+    margin-top:8px;
+    padding-left:150px;
+    padding-right:150px;
+    display:center;
+}
+.add a:hover{
+    color:red;
+}
+a :hover{
+    color:red;
+}
+.Adapt{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width:50ch;
+    margin:3px;
+}
+
+.card img{
+    width:300px;
+    height:350px;
+    margin-bottom:15px;
+    transition:0.3s ease-in-out;
+    margin-right:50px;
+
+}
+
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.card{
+    padding:20px;
+    margin:40px;
+}

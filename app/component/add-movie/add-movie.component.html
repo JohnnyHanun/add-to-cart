@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="add">
+            <a (click)="onClickChange()">
+                <img src="https://snworksceo.imgix.net/dpn-34s/65197ae6-e5a4-417d-a61e-4daf2cd444f7.sized-1000x1000.jpg?w=1000" width="170" height="170" alt="">
+                <h4>Add Movie</h4>
+            </a> 
+        </div>   
+
+        <div class="hi" style="margin-left:50px;">
+            <form *ngIf="isAddMovieClicked" #movieform="ngForm" (ngSubmit)="clear(movieform)" >
+            <div class="form-group row">
+                <div class="col-sm">
+                  <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Movie/TV Series name" style="margin-top:30px;" name="moviename" size="80" [(ngModel)]="MovieName">
+                  <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Picture reference" style="margin-top:8px;" name="movieimg"  [(ngModel)]="MovieImage">
+                  <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Your Rating" style="margin-top:8px;" name="movierating"[(ngModel)]="MovieRating" >
+                  <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Your Review" style="margin-top:8px;" name="moviereview"[(ngModel)]="MovieReview" >
+
+                  <button class="btn btn-danger btn-lg btn-block" id="addmvbtn"  (click)="addMovie();">Add</button>
+                  
+                </div>
+              </div>
+            </form>
+        </div> 
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let movie of mov">
+        <div class="card col-md-3">
+            <img src="{{movie.image}}" alt="" style="">
+            <h5 class="Adapt">{{movie.name}}</h5> 
+            <a  (click)="openPopup(movie);">
+                <h6 class="Adapt">My Review : {{movie.review}} </h6>
+            </a>
+            <h5 class="Adapt">Rating: {{movie.rating}}★</h5> 
+        </div>
+    </ng-container>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let movie of Movies">
+        <div class="card col-md-3">
+            <img src="{{movie.image}}" alt="" style="">
+            <h5 class="Adapt">{{movie.name}}</h5> 
+            <a  (click)="openPopup(movie);">
+                <h6 class="Adapt">My Review : {{movie.review}}</h6> 
+            </a>
+
+            <h5 class="Adapt">Rating: {{movie.rating}}★</h5>
+        </div>
+    </ng-container>
+    </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Anonymous Review of : {{ModalTitle}}</h4>
+        </div>
+        <div class="modal-body">
+            <p>{{ModalText}}</p>
+    
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" 
+                    (click)="closePopup()">
+            Close
+            </button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <app-footer></app-footer>
